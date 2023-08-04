@@ -1,30 +1,29 @@
-name: Daily Commit
+name: CI
 
 on:
   schedule:
-    - cron: '35 23 * * *'
+    - cron: "35 23 * * *"
   workflow_dispatch:
 
 jobs:
-  commit:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Set up Git
-        uses: actions/checkout@v2
-
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
-
-      - name: Echo hoge to result.txt
-        run: echo hoge > result.txt
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add result.txt
-          git commit -m "Update result.txt"
-          git push origin
+    - uses: actions/checkout@v2
+    - name: Run test script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        git config user.name "bot"
+        git config user.email "<>"
+        git remote set-url origin https://mrsmsn:${{ secrets.GITHUB_TOKEN }}@github.com/mrsmsn/daily-workflow
+        git branch
+        git checkout master
+        git branch
+        echo hello >> README.md
+        git add .
+        git commit -m "update!"
+        git push origin master
 
