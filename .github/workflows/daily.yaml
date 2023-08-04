@@ -3,6 +3,7 @@ me: Daily Commit
 on:
   schedule:
     - cron: '35 23 * * *'
+  workflow_dispatch:
 
 jobs:
   commit:
