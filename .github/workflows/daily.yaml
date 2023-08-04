@@ -6,12 +6,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: Run test script
       run: |
         echo Add other actions to build,
